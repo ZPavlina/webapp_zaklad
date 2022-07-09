@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="@{'/css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="@{'/images/favicon.png'}"/>
+    <title>Výchozí webová stránka | Java 2</title>
+</head>
+<body>
+    <div class="page">
+
+        <h1>Detail položky</h1>
+
+        <a href="eshop.html" th:href="@{/}">Přejít zpět na e-shop</a>
+
+        <form method="post">
+        <table>
+            <tr>
+                <th>Nazev</th>
+                <th>Cena</th>
+                <th>Popis</th>
+            
+                <tr>
+                <td><input name="nazev" value="Rohlik"
+                    th:value="${polozky.nazev}">
+                </td>
+                <td><input name="cena" value="Cena"
+                       th:value="${polozky.cena + ',-'}">
+                </td>
+                <td><input name="popis" value="Popis"
+                       th:value="${polozky.popis}">
+                </td>
+                </tr>
+
+
+                <td colspan="3">
+                    <input type="submit" value="Pridat" class="button">
+                </td>
+
+
+        </table>
+        </form>
+    </div>
+</body>
+</html>

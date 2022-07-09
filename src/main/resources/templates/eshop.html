@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="cs" xml:lang="cs"
+      xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" href="../static/css/styly.css"
+          th:href="@{'/css/styly.css'}"/>
+    <link rel="icon" href="../static/images/favicon.png"
+          th:href="@{'/images/favicon.png'}"/>
+    <title>Výchozí webová stránka | Java 2</title>
+</head>
+<body>
+    <div class="page">
+
+        <h1>Vypis produktu</h1>
+
+        <!--<a href="kosik.html" th:href="@{/kosik}">Prejit do kosiku</a>-->
+        <form method="post">
+            <table>
+                <tr>
+                    <th>Nazev</th>
+                    <th>Cena</th>
+                    <th>Akce</th>
+                </tr>
+                <tr th:each="polozka : ${polozky} ">
+                    <td th:text="${polozka.nazev}">chleba</td>
+                    <td th:text="${polozka.cena + ',-'}">29.90</td>
+
+
+                    <td>
+                        <a href="detail.html" class="button"
+                           th:href="@{'/detail/' + ${polozka.cislo}}">detail položky</a>
+
+                    </td>
+
+
+                <tr th:remove="all">
+                    <td>maslo</td>
+                    <td>54.90</td>
+                </tr>
+
+                <tr>
+                    <td colspan="3">
+                        <a href="kosik.html" th:href="@{/kosik}">Přejít do košíku</a>
+                    </td>
+                </tr>
+
+            </table>
+        </form>
+    </div>
+</body>
+</html>
